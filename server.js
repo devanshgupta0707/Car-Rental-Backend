@@ -13,7 +13,10 @@ const app = express()
 await connectDB()
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: "https://car-rental-frontend-8ep7.vercel.app/",
+  credentials: true
+}));
 app.use(express.json());
 
 app.get('/', (req, res)=> res.send("Server is running"))
